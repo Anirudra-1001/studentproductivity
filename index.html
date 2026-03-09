@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Student Planner</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+margin:0;
+}
+header{
+background:# 1565c0;
+color:white;
+text-align:centre;
+padding:15px;
+}
+.home{
+text-align:centre;
+margin:20px;
+}
+.home img{
+width:80%;
+border-radius:10px;
+}
+.box{
+background:white;
+padding:15px;
+margin:10px;
+}
+button{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:6px 10px;
+    cursor:pointer;
+  }
+
+  ul{
+   margin - top:10px;
+ }
+</style>
+</head>
+
+<body>
+
+<h1>Student Planner</h1>
+<div class="home">
+<img src="C:\Users\Dell\Saved Games\image.jpeg" width="100%">
+</div>
+</body>
+<!-- Study Log -->
+<div class="box">
+
+<h2>Study Log</h2>
+
+Subject:
+<input type="text" id="subject">
+
+Hours:
+<input type="number" id="hours">
+
+<button onclick="saveStudy()">Save</button>
+
+<p id="output"></p>
+
+</div>
+
+
+<!-- Task Manager -->
+<div class="box">
+
+<h2>Task List</h2>
+
+<input type="text" id="task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="list"></ul>
+
+</div>
+
+
+<!-- Exam Planner -->
+<div class="box">
+
+<h2>Exam Planner</h2>
+
+Exam Name:
+<input type="text" id="exam">
+
+Date:
+<input type="date" id="date">
+
+<button onclick="addExam()">Add Exam</button>
+
+<ul id="examList"></ul>
+
+</div>
+
+
+<script>
+
+function saveStudy(){
+
+var subject=document.getElementById("subject").value;
+var hours=document.getElementById("hours").value;
+
+document.getElementById("output").innerHTML =
+"You studied "+subject+" for "+hours+" hours.";
+
+}
+
+
+function addTask(){
+
+var task=document.getElementById("task").value;
+
+var li=document.createElement("li");
+
+li.innerHTML=task;
+
+document.getElementById("list").appendChild(li);
+
+}
+
+
+function addExam(){
+
+var exam=document.getElementById("exam").value;
+var date=document.getElementById("date").value;
+
+var li=document.createElement("li");
+
+li.innerHTML=exam+" - "+date;
+
+document.getElementById("examList").appendChild(li);
+
+}
+
+</script>
+
+</body>
+</html>
