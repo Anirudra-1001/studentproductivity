@@ -9,47 +9,100 @@
 body{
     font-family: Arial;
     background:#f2f2f2;
-margin:0;
+    margin:0;
 }
-header{
-background:# 1565c0;
-color:white;
-text-align:centre;
-padding:15px;
+
+h1{
+    background:#1565c0;
+    color:white;
+    padding:12px;
+    text-align:center;
 }
-.home{
-text-align:centre;
-margin:20px;
+
+/* Navigation bar */
+
+nav{
+    background:#0d47a1;
+    padding:10px;
+    text-align:center;
 }
-.home img{
-width:80%;
-border-radius:10px;
+
+nav button{
+    background:white;
+    color:#0d47a1;
+    border:none;
+    padding:8px 15px;
+    margin:5px;
+    cursor:pointer;
+    font-weight:bold;
 }
+
+/* Boxes */
+
 .box{
-background:white;
-padding:15px;
-margin:10px;
+    background:white;
+    padding:15px;
+    margin:15px;
 }
+
+/* Buttons */
+
 button{
     background:#1565c0;
     color:white;
     border:none;
     padding:6px 10px;
-    cursor:pointer;
-  }
+}
 
-  ul{
-   margin - top:10px;
- }
+/* Hide pages */
+
+.page{
+    display:none;
+}
+
+/* Home image */
+
+.home-img{
+    width:100%;
+    border-radius:8px;
+}
+
 </style>
 </head>
 
 <body>
-<img src="image.jpeg" width="100%">
 
-<h1>Student Planner</h1>
-</body>
+<h1>Student Productivity Hub</h1>
+
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('planner')">Student Planner</button>
+</nav>
+
+
+<!-- HOME PAGE -->
+
+<div id="home" class="page">
+
+<div class="box">
+
+<h2>Welcome</h2>
+
+<p>This is my Student Productivity Website.</p>
+
+<img src="image.jpeg" class="home-img">
+
+</div>
+
+</div>
+
+
+<!-- STUDENT PLANNER PAGE -->
+
+<div id="planner" class="page">
+
 <!-- Study Log -->
+
 <div class="box">
 
 <h2>Study Log</h2>
@@ -68,6 +121,7 @@ Hours:
 
 
 <!-- Task Manager -->
+
 <div class="box">
 
 <h2>Task List</h2>
@@ -81,6 +135,7 @@ Hours:
 
 
 <!-- Exam Planner -->
+
 <div class="box">
 
 <h2>Exam Planner</h2>
@@ -97,8 +152,28 @@ Date:
 
 </div>
 
+</div>
+
 
 <script>
+
+/* Page switch function */
+
+function showPage(page){
+
+document.getElementById("home").style.display="none";
+document.getElementById("planner").style.display="none";
+
+document.getElementById(page).style.display="block";
+
+}
+
+/* Default page */
+
+showPage("home");
+
+
+/* Study Log */
 
 function saveStudy(){
 
@@ -110,6 +185,8 @@ document.getElementById("output").innerHTML =
 
 }
 
+
+/* Task List */
 
 function addTask(){
 
@@ -123,6 +200,8 @@ document.getElementById("list").appendChild(li);
 
 }
 
+
+/* Exam Planner */
 
 function addExam(){
 
@@ -141,6 +220,3 @@ document.getElementById("examList").appendChild(li);
 
 </body>
 </html>
-
-
-
